@@ -1,0 +1,368 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Josefin Sans, Arial, Helvetica, sans-serif;
+}
+#main {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    145deg,
+    rgba(184, 198, 219, 0.8) 0%,
+    rgba(245, 247, 250, 0.8) 74%
+  );
+  color: rgb(18, 18, 63);
+}
+#main video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-position: center;
+  object-fit: cover;
+}
+.bars {
+  position: relative;
+  width: 30px;
+  height: 25px;
+  padding: 15px 0px 25px 0px;
+  margin: 15px auto;
+  cursor: pointer;
+}
+
+.bar {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 5px;
+}
+.bar::before,
+.bar::after {
+  position: absolute;
+  content: "";
+  background-color: white;
+  width: 100%;
+  height: 5px;
+}
+
+.bar::before {
+  transform: translateY(-10px);
+}
+
+.bar::after {
+  transform: translateY(10px);
+}
+
+.active .bar {
+  background-color: transparent;
+}
+
+.active .bar::before {
+  animation: tiltb 1s forwards;
+}
+@keyframes tiltb {
+  100% {
+    -webkit-transform: rotateZ(-130deg);
+    background-color: rgb(209, 32, 32);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+  }
+}
+.active .bar::after {
+  animation: tilta 1s forwards;
+}
+@keyframes tilta {
+  100% {
+    -webkit-transform: rotateZ(130deg);
+    background-color: rgb(209, 32, 32);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+  }
+}
+@-webkit-keyframes tiltb {
+  100% {
+    -webkit-transform: rotateZ(-130deg);
+    background-color: rgb(209, 32, 32);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+  }
+}
+.active .bar::after {
+  animation: tilta 1s forwards;
+}
+@-webkit-keyframes tilta {
+  100% {
+    -webkit-transform: rotateZ(130deg);
+    background-color: rgb(209, 32, 32);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+  }
+}
+.navBar {
+  position: fixed;
+  top: 35px;
+  left: 20px;
+  z-index: 1;
+}
+.navItems li {
+  font-size: 1.3rem;
+  text-align: center;
+  list-style-type: none;
+  color: rgb(18, 18, 63);
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  display: block;
+  transform: translateX(-100px);
+  cursor: pointer;
+  opacity: 0;
+}
+.navItems.active li {
+  animation: show 1.4s;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes show {
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes show {
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.navItems.active li:hover {
+  border-bottom: 2px solid rgb(209, 32, 32);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+@media (max-width: 426px) {
+  .navItems li {
+    font-size: 1rem;
+  }
+}
+#main h1,
+#main p {
+  position: relative;
+  top: 40%;
+  text-align: center;
+}
+#main h1 {
+  font-size: 5rem;
+}
+#main p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+#main p span {
+  color: rgb(209, 32, 32);
+}
+@media (max-width: 426px) {
+  #main h1 {
+    font-size: 2.5rem;
+  }
+  #main p {
+    font-size: 1rem;
+    margin: 0 25px;
+  }
+}
+#skills {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(205, 207, 219, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+#skills h3 {
+  padding: 6% 0px;
+  color: rgb(18, 18, 63);
+  text-align: center;
+  font-size: 5rem;
+}
+#skills ul {
+  margin: 70px 150px;
+  text-align: center;
+}
+#skills li {
+  padding: 8px 10px 3px 10px;
+  font-size: 1.3rem;
+  color: rgb(18, 18, 63);
+  list-style-type: none;
+  width: 150px;
+  margin: 5px auto;
+  display: inline-block;
+  background: #fff;
+  border: 0.5px solid hsla(228, 16%, 63%, 0.4);
+  box-shadow: 0 0 10px hsla(228, 16%, 63%, 0.2),
+    4px 4px 10px hsla(228, 16%, 63%, 0.2);
+  cursor: pointer;
+  border-radius: 50px;
+}
+#skills li:hover {
+  transform: rotate(0deg);
+  background: rgb(209, 32, 32);
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#skills p {
+  width: 600px;
+  margin: 50px auto;
+  padding: 18px;
+  font-size: 1.3rem;
+  border-radius: 25px;
+  color: rgb(18, 18, 63);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+#skills img {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.7;
+  z-index: -100;
+  bottom: 500px;
+}
+@media (max-width: 426px) {
+  #skills {
+    height: 100vh;
+  }
+  #skills h3 {
+    font-size: 2.5rem;
+  }
+  #skills ul {
+    margin: 5px;
+  }
+  #skills li {
+    font-size: 0.8rem;
+    display: inline-block;
+    margin: 5px;
+  }
+  #skills p {
+    margin: 0px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  #skills img {
+    display: block;
+    width: 130%;
+    bottom: -20px;
+    left: -35px;
+  }
+}
+#projects {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(205, 207, 219, 0.2);
+}
+#projects h3 {
+  position: absolute;
+  top: 0px;
+  padding: 6% 0px;
+  font-size: 5rem;
+  color: rgb(18, 18, 63);
+}
+.card {
+  position: relative;
+  width: 340px;
+  height: 220px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgb(56, 56, 56);
+  text-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+.card img {
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.card h1 {
+  font-size: 2.5rem;
+  font-family: serif;
+  position: absolute;
+  bottom: 5px;
+  margin: 5px;
+}
+.card p {
+  margin: 5px;
+  visibility: hidden;
+}
+.card:hover {
+  transform: rotateX(-10deg);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.66), inset 0 0 0 1px #333,
+    inset 0 0 0 6px rgba(255, 255, 255, 0.808);
+}
+.card:hover img {
+  opacity: 1;
+  transform: rotateY(-10deg);
+}
+.card:hover h1 {
+  transform: translateY(-50px);
+}
+.card:hover p {
+  transform: translateY(-50px);
+  visibility: visible;
+}
+@media (max-width: 426px) {
+  #projects h3 {
+    font-size: 2.5rem;
+    width: 100%;
+  }
+  #projects {
+    text-align: center;
+    display: block;
+    height: 1050px;
+  }
+  .card {
+    width: 180px;
+    height: 220px;
+    top: 100px;
+    left: 25%;
+  }
+  .card h1 {
+    font-size: 1.8rem;
+  }
+  .card:hover h1 {
+    transform: translateY(-70px);
+  }
+  .card:hover p {
+    transform: translateY(-70px);
+  }
+}
+
+#contact {
+  position: relative;
+  width: 100%;
+  height: 10vh;
+  text-align: center;
+  background-color: rgb(18, 18, 63);
+}
+#contact img {
+  transform: scale(1.5);
+  filter: invert(100%) sepia(1%) saturate(5428%) hue-rotate(195deg)
+    brightness(108%) contrast(101%);
+}
+#contact li {
+  display: inline-block;
+  margin: 5vh 20px;
+  color: #fff;
+}
+body > p:last-of-type {
+  font-size: 14px;
+  color: #fff;
+  background-color: rgb(18, 18, 63);
+}
